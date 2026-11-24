@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: transparent;
+    overflow: hidden;
+    -webkit-user-select: none; user-select: none;
+  }
+  #stage { width: 320px; height: 150px; display: grid; place-items: center; }
+  #pill {
+    width: 248px; height: 60px;
+    border-radius: 30px;
+    background:
+      radial-gradient(120% 160% at 50% -40%, rgba(255,255,255,0.10), rgba(255,255,255,0) 55%),
+      linear-gradient(180deg, rgba(38,34,46,0.78), rgba(15,13,19,0.86));
+    -webkit-backdrop-filter: blur(22px) saturate(1.25);
+    backdrop-filter: blur(22px) saturate(1.25);
+    box-shadow:
+      0 10px 34px rgba(0,0,0,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.14),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
+    display: grid; place-items: center;
+  }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+  <div id="stage"><div id="pill"><canvas id="c"></canvas></div></div>
+<script>
+const PILL_W = 248, PILL_H = 60;
+const DPR = Math.max(2, window.devicePixelRatio || 1);
+const c = document.getElementById('c'), ctx = c.getContext('2d');
+c.width = PILL_W * DPR; c.height = PILL_H * DPR;
+c.style.width = PILL_W + 'px'; c.style.height = PILL_H + 'px';
+ctx.scale(DPR, DPR);
+
+const N = 17;
+const heights = new Array(N).fill(0.06);
+let level = 0;      // 0..1, lo setea Python
+let state = 'rec';  // 'rec' | 'busy'
+
+// API que llama Python
+window.setLevel = (l, s) => { level = Math.max(0, Math.min(1, l)); if (s) state = s; };
+
+function weight(i) {
+  const cc = (N - 1) / 2;
+  const d = (i - cc) / cc;
+  return Math.exp(-(d * d) * 1.5);
+}
+
+function rr(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawBars(t) {
+  const cx = PILL_W / 2, cy = PILL_H / 2;
+  const gap = 11.5, bw = 4.5;
+  const x0 = cx - (N - 1) * gap / 2;
+  for (let i = 0; i < N; i++) {
+    const n = 0.55 + 0.30 * Math.sin(t / 145 + i * 1.27) + 0.15 * Math.sin(t / 95 + i * 2.11);
+    const target = 0.10 + level * weight(i) * Math.max(0, n);
+    const k = target > heights[i] ? 0.42 : 0.15;
+    heights[i] += (target - heights[i]) * k;
+    const h = Math.max(bw, heights[i] * (PILL_H - 18));
+    const x = x0 + i * gap;
+    const g = ctx.createLinearGradient(0, cy - h / 2, 0, cy + h / 2);
+    g.addColorStop(0, '#edc2ff');
+    g.addColorStop(0.5, '#b15cff');
+    g.addColorStop(1, '#7b2ff7');
+    ctx.fillStyle = g;
+    ctx.shadowColor = 'rgba(180,95,255,0.92)';
+    ctx.shadowBlur = 15;
+    rr(x - bw / 2, cy - h / 2, bw, h, bw / 2);
+    ctx.fill();
+    // nucleo highlight
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = 'rgba(247,240,255,0.5)';
+    rr(x - bw / 6, cy - h / 2 + 1.5, bw / 3, h - 3, bw / 6);
+    ctx.fill();
+  }
+  ctx.shadowBlur = 0;
+}
+
+let busyAngle = 0;
+function drawRing(dt) {
+  const cx = PILL_W / 2, cy = PILL_H / 2, R = 15;
+  busyAngle += dt * 0.005;
+  ctx.lineWidth = 4; ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(112,82,158,0.45)';
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+  ctx.strokeStyle = '#c08cff';
+  ctx.shadowColor = 'rgba(178,92,255,0.95)'; ctx.shadowBlur = 14;
+  ctx.beginPath(); ctx.arc(cx, cy, R, busyAngle, busyAngle + 1.9); ctx.stroke();
+  ctx.shadowBlur = 0;
+}
+
+let last = performance.now();
+function frame(now) {
+  const dt = now - last; last = now;
+  ctx.clearRect(0, 0, PILL_W, PILL_H);
+  if (state === 'busy') drawRing(dt);
+  else drawBars(now);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

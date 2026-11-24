@@ -1,0 +1,6 @@
+{
+  "name": "cache-reloj",
+  "version": "0.1.0",
+  "description": "Faixa acima do prompt com o estado do cache da sessão: quanto falta, quanto é relido se vencer, e um aviso 5 minutos antes",
+  "types": "./types/index.d.ts"
+}

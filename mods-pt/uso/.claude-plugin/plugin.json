@@ -1,0 +1,6 @@
+{
+  "name": "uso",
+  "version": "0.1.0",
+  "description": "Faixa fixa acima do prompt com o contexto usado e a cota de 5h e semanal",
+  "types": "./types/index.d.ts"
+}

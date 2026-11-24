@@ -1,0 +1,6 @@
+{
+  "name": "cache-reloj",
+  "version": "0.1.0",
+  "description": "Banda sobre el prompt con el estado del caché de la sesión: cuánto le queda, cuánto se re-lee si vence, y un aviso 5 minutos antes",
+  "types": "./types/index.d.ts"
+}

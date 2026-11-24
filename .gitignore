@@ -1,0 +1,11 @@
+# Nunca al repo: claves, modo prueba, entornos y basura
+.env
+.prueba
+**/.venv/
+venv/
+__pycache__/
+*.pyc
+*.wav
+*.flac
+dictado/config.json
+dictado/hotkey.json

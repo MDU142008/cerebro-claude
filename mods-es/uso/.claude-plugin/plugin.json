@@ -1,0 +1,6 @@
+{
+  "name": "uso",
+  "version": "0.1.0",
+  "description": "Banda fija sobre el prompt con el contexto usado y la cuota de 5h y semanal",
+  "types": "./types/index.d.ts"
+}
