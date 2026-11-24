@@ -36,7 +36,7 @@ MODEL = "whisper-large-v3"
 _cfg = {}
 try:
     import json
-    with open(os.path.join(HERE, "config.json"), encoding="utf-8") as _f:
+    with open(os.path.join(HERE, "config.json"), encoding="utf-8-sig") as _f:
         _cfg = json.load(_f)
 except Exception:
     _cfg = {}

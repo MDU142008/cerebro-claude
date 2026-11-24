@@ -79,7 +79,7 @@ Contale en 2 líneas: "Apretás Ctrl+Win, hablás, lo volvés a apretar y el tex
 2. En `DICTADO`:
    - `python -m venv .venv`
    - `.venv\Scripts\python.exe -m pip install -r requirements.txt` (tarda unos minutos; avisale).
-3. Si no existe `config.json`, crealo: `{"idioma": "<IDIOMA>", "palabras": ""}`. Preguntale qué palabras o nombres usa mucho (clientes, productos, herramientas) y ponelas en `palabras`, separadas por comas, para que el dictado las reconozca bien.
+3. Si no existe `config.json`, crealo (UTF-8): `{"idioma": "<IDIOMA>", "palabras": ""}`. Preguntale qué palabras o nombres usa mucho (clientes, productos, herramientas) y ponelas en `palabras`, separadas por comas, para que el dictado las reconozca bien.
 4. **La clave de Groq. Vos nunca la ves ni la escribís.**
    1. Explicale:
       - "Entrá a https://console.groq.com y creá tu cuenta (con Google es más rápido)."
