@@ -17,7 +17,7 @@ No digas cuántas hay en total; solo las dos listas.
 - **Activas** (`.claude/skills/*`)
 - **Guardadas** (`extras/*`): cómo se activa cada una ("decime 'activá reunion'")
 
-`empezar`, `cierre` y `herramientas` son la base: si piden desactivarlas, avisá que el cerebro deja de guardarse solo y hacelo solo si lo confirman.
+`empezar`, `cierre`, `herramientas` y `actualizar` son la base: si piden desactivarlas, avisá que el cerebro deja de guardarse solo y hacelo solo si lo confirman.
 
 ## Activar o desactivar
 

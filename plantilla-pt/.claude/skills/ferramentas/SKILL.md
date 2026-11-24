@@ -17,7 +17,7 @@ Não diga quantas existem no total; só as duas listas.
 - **Ativas** (`.claude/skills/*`)
 - **Guardadas** (`extras/*`): como ativar cada uma ("me diga 'ativa reuniao'")
 
-`comecar`, `fechar` e `ferramentas` são a base: se pedirem para desativá-las, avise que o cérebro deixa de se salvar sozinho e só faça se confirmarem.
+`comecar`, `fechar`, `ferramentas` e `atualizar` são a base: se pedirem para desativá-las, avise que o cérebro deixa de se salvar sozinho e só faça se confirmarem.
 
 ## Ativar ou desativar
 
