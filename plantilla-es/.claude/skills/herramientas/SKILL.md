@@ -22,8 +22,9 @@ No digas cuántas hay en total; solo las dos listas.
 ## Activar o desactivar
 
 1. Avisá antes en una línea: "Claude Code te va a pedir permiso para tocar la carpeta `.claude`: es normal, decí que sí." Después mové la carpeta entera (con PowerShell: `Move-Item`).
-2. Decile que escriba `/reload-skills` (o que cierre y abra Claude) para que se cargue el cambio.
-3. Anotá el cambio en `notas/AAAA-MM-DD-herramientas.md` en una línea.
+2. Si la herramienta que activás tiene una parte "La primera vez" (por ejemplo, `celu` instala un programa y prepara el celular), hacela con la persona cuando la vaya a usar por primera vez, no antes. `central` usa los scripts de `sesiones`: anda aunque `sesiones` siga guardada.
+3. Decile que escriba `/reload-skills` (o que cierre y abra Claude) para que se cargue el cambio.
+4. Anotá el cambio en `notas/AAAA-MM-DD-herramientas.md` en una línea.
 
 ## Herramientas nuevas
 

@@ -37,6 +37,7 @@ Usá PowerShell. Un paso por vez. Si un paso falla, leé el error, probá **una*
    - **Python** (`Python.Python.3.13`, con `--override "/quiet InstallAllUsers=0 PrependPath=1 Include_launcher=1"`) y después `python -m pip install --user --upgrade yt-dlp`. Ojo: el `python` que trae Windows abre la Microsoft Store y no sirve; `python --version` tiene que decir `Python 3`.
    - **uv** (`astral-sh.uv`): para Windows MCP.
    - **Node.js** (`OpenJS.NodeJS.LTS`): para Playwright (`npx --version`).
+   - **No** instales scrcpy ni adb acá: los instala la herramienta guardada `celu` (`celular` en portugués) la primera vez que la persona la usa.
 2. **El repo.** Si `HERRAMIENTAS` no existe: `git clone <link> "$HOME\cerebro-herramientas"`. Si ya existe: `git -C "<HERRAMIENTAS>" pull --ff-only`. Si la conversación arrancó adentro de una copia del repo (este archivo está en la carpeta actual), esa es `HERRAMIENTAS`.
 
 ## 2. Su cerebro

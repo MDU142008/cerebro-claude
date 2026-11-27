@@ -28,8 +28,8 @@ Un sistema operativo de IA personal (un "segundo cerebro") en Claude Code, para 
   - `/actualizar`: trae herramientas nuevas sin tocar lo tuyo.
   - `/investigar`: investigación con fuentes reales.
   - `/roast`: busca los agujeros de una idea.
-  - Guardadas, para activar cuando quieras: `/reunion`, `/semana`, `/innovar` y `/video`.
-  - En portugués: `/comecar`, `/hoje`, `/fechar`, `/ferramentas`, `/manutencao`, `/atualizar`, `/pesquisar`, `/reuniao` e `/inovar` (`/roast`, `/semana` y `/video` se llaman igual).
+  - Guardadas, para activar cuando quieras: `/reunion`, `/semana`, `/innovar`, `/video`, `/celu` (maneja tu celular Android desde la compu), `/sesiones` (abre otras sesiones de Claude en pestañas nuevas, con una tarea cada una) y `/central` (parte un proyecto grande en una sesión por tema y las coordina; usa `/sesiones`).
+  - En portugués: `/comecar`, `/hoje`, `/fechar`, `/ferramentas`, `/manutencao`, `/atualizar`, `/pesquisar`, `/reuniao`, `/inovar`, `/celular` e `/sessoes` (`/roast`, `/semana`, `/video` y `/central` se llaman igual).
 - **Barras** de uso (contexto y cuota) y de caché, abajo del chat.
 - **Dictado por voz:** Ctrl+Win, hablás y se pega el texto. Usa Groq con tu propia cuenta gratis.
 - **Plugins:** Playwright (navegador) y skill-creator (crear herramientas), más Windows MCP (manejar programas).
